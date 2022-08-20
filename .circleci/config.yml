@@ -7,9 +7,8 @@ version: 2.1
 jobs:
   print_to_file:
     docker:
-      - image: cimg/base:stable 
+      - image: circleci/node:13.8.0
     steps:
-      - checkout
       - run:
           name: "Print to file"
           command: echo "text to output here" > output.txt
@@ -34,4 +33,4 @@ workflows:
       - print_to_file
       - print_output_file:
           requires:
-            - print_to_file
+            - print_to_file 
