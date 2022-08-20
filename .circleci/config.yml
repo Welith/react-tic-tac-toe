@@ -9,9 +9,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run:
-          name: "Print to file"
-          command: echo "text to output here" > output.txt
+      - run: echo "text to output here" > output.txt
       - persist_to_workspace:
           root: ~/
           paths: 
@@ -19,7 +17,7 @@ jobs:
 
   print_output_file:
     docker:
-      - image: cimg/base:stable 
+      - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
           at: ~/
